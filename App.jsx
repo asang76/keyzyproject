@@ -14,7 +14,6 @@ import {
 import LinearGradient from 'react-native-linear-gradient';
 import { AnimatedCircularProgress } from 'react-native-circular-progress';
 import { Circle } from 'react-native-svg';
-import CustomAnimatedCircularProgress from './CustomAnimatedCircularProgress';
 import MaskedView from '@react-native-masked-view/masked-view';
 
 
@@ -52,13 +51,13 @@ function App() {
   const [selectedIndex, setSelectedIndex] = useState(2);
   const GradientText = ({ text, colors }) => {
     return (
-      <MaskedView maskElement={<Text style={{ fontWeight: 'bold', fontSize: 26, textAlign: 'center' }}>£{text}</Text>}>
+      <MaskedView maskElement={<Text style={{ fontWeight: 'bold', fontSize: 26, textAlign: 'center' ,fontFamily: 'SF-Pro'}}>£{text}</Text>}>
         <LinearGradient
           colors={colors}
           start={{ x: 0, y: 0 }}
           end={{ x: 1, y: 0 }}
         >
-          <Text style={{ fontWeight: 'bold', fontSize: 26, textAlign: 'center', opacity: 0 }}>£{text}</Text>
+          <Text style={{ fontWeight: 'bold', fontSize: 26, textAlign: 'center', opacity: 0,fontFamily: 'SF-Pro' }}>£{text}</Text>
         </LinearGradient>
       </MaskedView>
     );
@@ -75,7 +74,7 @@ function App() {
             end={{ x: 0, y: 1 }}
           >
             <View style={{ display: 'flex', flexDirection: 'row', justifyContent: "space-between", margin: 20 }}>
-              <Text style={{ color: "white", fontSize: 27, }}>Home</Text>
+              <Text style={{ color: "white", fontSize: 27, fontFamily: 'SF-Pro'}}>Home</Text>
               <View style={{ borderWidth: 1, borderColor: 'white', borderRadius: 20, padding: 10, position: 'relative' }}>
                 <Image
                   source={require('./assets/notification.png')}
@@ -98,10 +97,10 @@ function App() {
                 elevation: 20,
                 display: selectedIndex === 0 ? 'flex' : 'none',
               }}>
-              <Text style={{ position: 'absolute', bottom: 40, left: 115, fontSize: 18, display: 'flex', alignSelf: "center" }}>{data[0].heading}</Text>
-              <Text style={{ position: 'absolute', bottom: 120, left: 105, fontSize: 20, display: 'flex', alignSelf: "center" }}>of £{data[0].maxamount}</Text>
-              <Text style={{ position: 'absolute', color: 'black', bottom: 150, left: 85, fontWeight: '700', fontSize: 35, display: 'flex', alignSelf: "center" }}> £{data[0].minamount}</Text>
-              <CustomAnimatedCircularProgress
+              <Text style={{ position: 'absolute', bottom: 40, left: 115, fontSize: 18, display: 'flex', alignSelf: "center",fontFamily: 'SF-Pro' }}>{data[0].heading}</Text>
+              <Text style={{ position: 'absolute', bottom: 120, left: 105, fontSize: 20, display: 'flex', alignSelf: "center",fontFamily: 'SF-Pro' }}>of £{data[0].maxamount}</Text>
+              <Text style={{ position: 'absolute', color: 'black', bottom: 150, left: 85, fontWeight: '700', fontSize: 35, display: 'flex', alignSelf: "center" ,fontFamily: 'SF-Pro'}}> £{data[0].minamount}</Text>
+              <AnimatedCircularProgress
                 style={{ position: 'absolute', right: 7, top: 6 }}
                 size={270}
                 width={19}
@@ -132,11 +131,11 @@ function App() {
                 elevation: 20,
                 display: selectedIndex === 1 ? 'flex' : 'none',
               }}>
-              <Text style={{ position: 'absolute', bottom: 40, left: 83, fontSize: 18, display: 'flex', alignSelf: "center" }}>{data[1].heading}</Text>
-              <Text style={{ position: 'absolute', bottom: 120, left: 100, fontSize: 20, display: 'flex', alignSelf: "center" }}>of £{data[1].maxamount}</Text>
-              <Text style={{ position: 'absolute', color: 'black', bottom: 150, left: 75, fontWeight: '700', fontSize: 35, display: 'flex', alignSelf: "center" }}> £{data[1].minamount}</Text>
+              <Text style={{ position: 'absolute', bottom: 40, left: 83, fontSize: 18, display: 'flex', alignSelf: "center",fontFamily: 'SF-Pro' }}>{data[1].heading}</Text>
+              <Text style={{ position: 'absolute', bottom: 120, left: 100, fontSize: 20, display: 'flex', alignSelf: "center",fontFamily: 'SF-Pro' }}>of £{data[1].maxamount}</Text>
+              <Text style={{ position: 'absolute', color: 'black', bottom: 150, left: 75, fontWeight: '700', fontSize: 35, display: 'flex', alignSelf: "center" ,fontFamily: 'SF-Pro'}}> £{data[1].minamount}</Text>
 
-              <CustomAnimatedCircularProgress
+              <AnimatedCircularProgress
                 style={{ position: 'absolute', right: 7, bottom: 6 }}
                 size={270}
                 width={19}
@@ -171,7 +170,7 @@ function App() {
               <Text style={{ position: 'absolute', bottom: 120, left: 100, fontSize: 20, display: 'flex', alignSelf: "center",fontFamily:'SF-Pro' }}>of £{data[2].maxamount}</Text>
              
               <Text style={{ position: 'absolute', color: 'black', bottom: 150, left: 75, fontWeight: '700', fontSize: 35, display: 'flex', alignSelf: "center", fontFamily: 'SF-Pro' }}> £{data[2].minamount}</Text>
-              <CustomAnimatedCircularProgress
+              <AnimatedCircularProgress
                 style={{ position: 'absolute', right: 7, top: 6 }}
                 size={270}
                 width={19}
@@ -185,7 +184,7 @@ function App() {
                 renderCap={({ center }) => <Circle cx={center.x} cy={center.y} r="0" fill="blue" />}
 
               />
-              <CustomAnimatedCircularProgress
+              <AnimatedCircularProgress
                 style={{ position: 'absolute', right: 7, bottom: 6 }}
                 size={270}
                 width={19}
